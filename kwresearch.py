@@ -36,13 +36,17 @@ st.write("""
 """)
 
 df1 = pd.DataFrame(columns=np.arange(800))
-st.session_state.df1 = df1
-
-df2 = st.data_editor(df1, num_rows="dynamic")
-
-
+if 'df1' not in st.session_state:
+	st.session_state.df1 = df1
+	st.session_state.edited_df1 = st.session_state.df1.copy()
+def save_edits():
+    st.session_state.df1 = st.session_state.edited_df1.copy()
+def funct1():
+    st.session_state.edited_df1 = st.data_editor(df1, on_change=save_edits, num_rows="dynamic")
+    return
 if st.button('Start now'):
-	st.dataframe(df2)
+	funct1()
+	st.dataframe(df1)
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
