@@ -35,12 +35,8 @@ st.write("""
 	Paste your categories in the following table:
 """)
 
-df1 = pd.DataFrame(columns=np.arange(800))
-if 'df1' not in st.session_state:
-    st.session_state.df1 = df1
-def save_edits(df1):
-    st.session_state.df1edit = df1
-edited_df = st.data_editor(st.session_state.df1, on_change=save_edits, num_rows="dynamic")
+df = pd.DataFrame(columns=np.arange(800))
+df1 = st.data_editor(df, num_rows="dynamic", use_container_width=True)
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
