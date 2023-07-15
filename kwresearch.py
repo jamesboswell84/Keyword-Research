@@ -29,8 +29,8 @@ st.write("""
 	[Instructions here](https://github.com/jamesboswell84/Keyword-Research/blob/main/README.md)
 """)
 
-df = pd.DataFrame()
-df1 = st.experimental_data_editor(df,num_rows="dynamic")
+df = pd.DataFrame(columns=["1","2","3"])
+df1 = st.data_editor(df,num_rows="dynamic")
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
