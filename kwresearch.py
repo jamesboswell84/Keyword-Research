@@ -30,7 +30,7 @@ st.write("""
 """)
 
 df = pd.DataFrame()
-df1 = st.experimental_data_editor(df)
+df1 = st.experimental_data_editor(df,num_rows="dynamic")
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
