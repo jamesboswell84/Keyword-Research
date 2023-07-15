@@ -40,7 +40,7 @@ if 'df1' not in st.session_state:
     st.session_state.df1 = df1
 def save_edits(df1):
     st.session_state.df1edit = df1
-edited_df = st.data_editor(df1, on_change=save_edits, num_rows="dynamic")
+edited_df = st.data_editor(st.session_state.df1, on_change=save_edits, num_rows="dynamic")
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
