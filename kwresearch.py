@@ -4,8 +4,8 @@ import streamlit as st
 import numpy as np
 
 ### The following is used to store the dataframes between reruns
-if 'df1' not in st.session_state:
-	st.session_state.df1 = None
+if 'df' not in st.session_state:
+	st.session_state.df = None
 if 'df4' not in st.session_state:
 	st.session_state.df4 = None
 if 'df5' not in st.session_state:
@@ -40,8 +40,8 @@ df = pd.DataFrame()
 for i in range(num_cols):
     col_name = f'col{i+1}'
     df[col_name] = np.random.randint(low=0, high=100, size=1)
-
-df1 = st.data_editor(df, num_rows="dynamic", use_container_width=True)
+st.session_state.df = df
+df1 = st.data_editor(st.session_state.df, num_rows="dynamic", use_container_width=True)
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
