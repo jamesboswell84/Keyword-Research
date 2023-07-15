@@ -35,7 +35,12 @@ st.write("""
 	Paste your categories in the following table:
 """)
 
-df = pd.DataFrame(np.arange(800), columns=np.arange(800))
+numcols = 800
+df = {}
+for i in range(num_cols):
+    col_name = f'col{i+1}'
+    df[col_name] = np.random.randint(low=0, high=100, size=1)
+
 df1 = st.data_editor(df, num_rows="dynamic", use_container_width=True)
 
 ### Upload your Excel files
