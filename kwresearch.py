@@ -38,7 +38,8 @@ st.write("""
 df = pd.DataFrame(columns=np.arange(800))
 df1 = st.data_editor(df,num_rows="dynamic")
 
-st.dataframe(df1)
+if st.button('Start now'):
+	st.dataframe(df1)
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
