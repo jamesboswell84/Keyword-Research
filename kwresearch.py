@@ -34,8 +34,9 @@ st.divider()
 st.write("""
 	Paste your categories in the following table:
 """)
-
-df = pd.DataFrame(columns=np.arange(8))
+cols = np.arange(800)
+st.write(cols)
+df = pd.DataFrame(columns=cols)
 df1 = st.data_editor(df,num_rows="dynamic")
 
 if st.button('Start now'):
