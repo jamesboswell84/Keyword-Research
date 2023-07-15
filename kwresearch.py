@@ -36,9 +36,9 @@ st.write("""
 """)
 
 df1 = pd.DataFrame(columns=np.arange(800))
-st.session_state.df = df1
+st.session_state.df1 = df1
 
-df2 = st.data_editor(df1, key="data_editor", num_rows="dynamic")
+df2 = st.data_editor(df1, num_rows="dynamic")
 
 
 if st.button('Start now'):
