@@ -39,7 +39,7 @@ df1 = pd.DataFrame(columns=np.arange(800))
 st.session_state.df = df1
 
 def save_edits(df):
-    st.session_state.df = df
+    st.session_state.df1 = df
 
 df2 = st.data_editor(df1, on_change=save_edits, key="data_editor", num_rows="dynamic")
 
