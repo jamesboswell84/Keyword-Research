@@ -36,7 +36,7 @@ st.write("""
 """)
 
 num_cols = 800
-df = {}
+df = pd.DataFrame()
 for i in range(num_cols):
     col_name = f'col{i+1}'
     df[col_name] = np.random.randint(low=0, high=100, size=1)
