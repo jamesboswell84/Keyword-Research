@@ -38,8 +38,8 @@ st.write("""
 df1 = pd.DataFrame(columns=np.arange(800))
 if 'df1' not in st.session_state:
     st.session_state.df1 = df1
-def save_edits(df1):
-    st.session_state.df1edit = df1
+def save_edits(edited_df):
+    st.session_state.df1edit = edited_df
 edited_df = st.data_editor(df1, on_change=save_edits, num_rows="dynamic")
 
 ### Upload your Excel files
