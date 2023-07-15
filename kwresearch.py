@@ -35,7 +35,7 @@ st.write("""
 	Paste your categories in the following table:
 """)
 
-df = pd.DataFrame(columns=np.arange(800))
+df = pd.DataFrame(np.arange(800), columns=np.arange(800))
 df1 = st.data_editor(df, num_rows="dynamic", use_container_width=True)
 
 ### Upload your Excel files
