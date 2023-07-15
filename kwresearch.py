@@ -35,7 +35,7 @@ st.write("""
 	Paste your categories in the following table:
 """)
 
-numcols = 800
+num_cols = 800
 df = {}
 for i in range(num_cols):
     col_name = f'col{i+1}'
