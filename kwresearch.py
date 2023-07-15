@@ -4,8 +4,8 @@ import streamlit as st
 import numpy as np
 
 ### The following is used to store the dataframes between reruns
-if 'df' not in st.session_state:
-	st.session_state.df = None
+if 'df1' not in st.session_state:
+	st.session_state.df1 = None
 if 'df4' not in st.session_state:
 	st.session_state.df4 = None
 if 'df5' not in st.session_state:
@@ -34,11 +34,15 @@ st.divider()
 st.write("""
 	Paste your categories in the following table:
 """)
-cols = np.arange(800)
-df = pd.DataFrame(columns=cols)
-st.session_state.df = df
 
-df1 = st.data_editor(df,num_rows="dynamic")
+df1 = pd.DataFrame(columns=np.arange(800))
+st.session_state.df = df1
+
+def save_edits(df):
+    st.session_state.df = df
+
+df1 = st.data_editor(st.session_state.df1, on_change=save_edits, key="data_editor", num_rows="dynamic")
+
 
 if st.button('Start now'):
 	st.dataframe(df1)
