@@ -41,11 +41,8 @@ if 'df1' not in st.session_state:
 	st.session_state.edited_df1 = st.session_state.df1.copy()
 def save_edits():
     st.session_state.df1 = st.session_state.edited_df1.copy()
-def funct1():
-    st.session_state.edited_df1 = st.data_editor(df1, on_change=save_edits, num_rows="dynamic")
-    return
+st.session_state.edited_df1 = st.data_editor(df1, on_change=save_edits, num_rows="dynamic")
 if st.button('Start now'):
-	funct1()
 	st.dataframe(df1)
 
 ### Upload your Excel files
