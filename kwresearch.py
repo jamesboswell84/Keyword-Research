@@ -37,13 +37,10 @@ st.write("""
 
 df1 = pd.DataFrame(columns=np.arange(800))
 if 'df1' not in st.session_state:
-	st.session_state.df1 = df1
-	st.session_state.edited_df1 = st.session_state.df1.copy()
-def save_edits():
-    st.session_state.df1 = st.session_state.edited_df1.copy()
-st.session_state.edited_df1 = st.data_editor(df1, on_change=save_edits, num_rows="dynamic")
-if st.button('Start now'):
-	st.dataframe(df1)
+    st.session_state.df1 = df1
+def save_edits(df):
+    st.session_state.df1 = df
+edited_df = st.data_editor(st.session_state.df1, on_change=save_edits, key="data_editor")
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
