@@ -41,7 +41,7 @@ st.session_state.df = df1
 def save_edits(df):
     st.session_state.df = df
 
-df1 = st.data_editor(st.session_state.df1, on_change=save_edits, key="data_editor", num_rows="dynamic")
+df2 = st.data_editor(df1, on_change=save_edits, key="data_editor", num_rows="dynamic")
 
 
 if st.button('Start now'):
