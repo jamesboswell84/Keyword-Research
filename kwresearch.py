@@ -35,9 +35,9 @@ st.write("""
 	Paste your categories in the following table:
 """)
 
-df = pd.DataFrame(columns=np.arange(8))
+#df = pd.DataFrame(columns=np.arange(8))
 
-df1 = st.data_editor(df,num_rows="dynamic",key="pff")
+df1 = st.data_editor(df,num_rows="dynamic")
 
 if st.button('Start now'):
 	st.dataframe(df1)
