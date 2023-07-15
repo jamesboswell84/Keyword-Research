@@ -36,7 +36,7 @@ st.write("""
 """)
 
 #df = pd.DataFrame(columns=np.arange(8))
-
+df = pd.DataFrame()
 df1 = st.data_editor(df,num_rows="dynamic")
 
 if st.button('Start now'):
