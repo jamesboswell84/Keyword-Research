@@ -48,6 +48,7 @@ df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic",
 st.dataframe(df1)
 
 df2 = df1.T
+st.dataframe(df2)
 df2 = df2[df2[0].str.contains("_")==False]
 df2 = df2[df2[0].str.contains(".")==False]
 st.dataframe(df2)
