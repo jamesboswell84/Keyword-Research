@@ -44,10 +44,8 @@ if 'df' not in st.session_state:
 		df[col_name] = df[col_name].astype(str)
 	st.session_state.df = df
 df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
-st.session_state.df1 = df1
-if 'df2' not in st.session_state:
-	df2 = st.session_state.df1
 
+df2 = df1.T
 st.dataframe(df2)
 
 
