@@ -32,7 +32,7 @@ st.write("""
 """)
 st.divider()
 st.write("""
-	Paste your categories in the following table:
+	Paste your KWP categories from clipboard into the below table:
 """)
 
 if 'df' not in st.session_state:
@@ -44,10 +44,8 @@ if 'df' not in st.session_state:
 		df[col_name] = df[col_name].astype(str)
 	st.session_state.df = df
 df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
-try:
-	st.write(st.session_state["data_editor"])
-except:
-	pass
+
+st.dataframe(df1)
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
