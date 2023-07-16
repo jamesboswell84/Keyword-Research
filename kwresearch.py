@@ -46,7 +46,7 @@ if 'df' not in st.session_state:
 df1 = st.data_editor(
 	st.session_state.df, 
 	column_config={
-		"widgets": st.column_config.Column()}
+		"widgets": st.column_config.Column()},
 	key="data_editor",
 	num_rows="dynamic",
 	use_container_width=True
