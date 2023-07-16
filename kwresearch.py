@@ -43,7 +43,7 @@ if 'df' not in st.session_state:
 		col_name = f'col{i+1}'
 		df[col_name] = np.random.randint(low=0, high=100, size=1)
 	st.session_state.df = df
-df1 = st.data_editor(df, key="data_editor", num_rows="dynamic", use_container_width=True)
+df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
 
 
 ### Upload your Excel files
