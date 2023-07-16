@@ -34,14 +34,17 @@ st.divider()
 st.write("""
 	Paste your categories in the following table:
 """)
+#st.write(st.session_state["data_editor"])
 
-num_cols = 800
-df = pd.DataFrame()
-for i in range(num_cols):
-    col_name = f'col{i+1}'
-    df[col_name] = np.random.randint(low=0, high=100, size=1)
-st.session_state.df = df
-df1 = st.data_editor(st.session_state.df, num_rows="dynamic", use_container_width=True)
+if 'df' not in st.session_state:
+	num_cols = 800
+	df = pd.DataFrame()
+	for i in range(num_cols):
+		col_name = f'col{i+1}'
+		df[col_name] = np.random.randint(low=0, high=100, size=1)
+		st.session_state.df = df
+df1 = st.data_editor(df, key="data_editor", num_rows="dynamic", use_container_width=True)
+
 
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
