@@ -47,6 +47,11 @@ df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic",
 
 st.dataframe(df1)
 
+df2 = df1.T
+df2 = df2[df2['col1'].str.contains("_")==False]
+df2 = df2[df2['col1'].str.contains(".")==False]
+
+
 ### Upload your Excel files
 files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
 st.session_state.files_csv = files_csv
