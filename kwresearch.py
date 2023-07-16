@@ -43,11 +43,11 @@ if 'df' not in st.session_state:
 		df[col_name] = np.random.randint(low=0, high=100, size=1)
 		df[col_name] = df[col_name].astype(str)
 	st.session_state.df = df
-if 'df1' not in st.session_state:
-	df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
-	st.session_state.df1 = df1
+
+df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
+
 	
-st.dataframe(st.session_state.df1)
+st.dataframe(df1)
 
 
 
