@@ -43,13 +43,15 @@ if 'df' not in st.session_state:
 		df[col_name] = np.random.randint(low=0, high=100, size=1)
 		df[col_name] = df[col_name].astype(str)
 	st.session_state.df = df
-df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
+def save(df1):
+	
+if 'df1' not in st.session_state:
+	df1 = st.data_editor(st.session_state.df, key="data_editor", on_edit="save", num_rows="dynamic", use_container_width=True)
+	st.session_state.df1 = df1
 
 df2 = df1.T.reset_index()
 df2.columns = df2.iloc[0]
 df2 = df2[~df2['Brand or Non-Brand'].isin(['Keywords','expand_less','check_box'])]
-df2 = df2[~df2['Brand or Non-Brand'].contains(r'\.')]
-df2 = df2[~df2['Brand or Non-Brand'].contains(r'[0-9]+')]
 st.dataframe(df2)
 
 
