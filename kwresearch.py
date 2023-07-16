@@ -47,7 +47,7 @@ df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic",
 
 df2 = df1.T.reset_index()
 df2.columns = df2.iloc[0]
-df2 = df2[~df2[0].isin(['Keywords','expand_less','check_box','.'])]
+df2 = df2[~df2[1].isin(['Keywords','expand_less','check_box','.'])]
 st.dataframe(df2)
 
 
