@@ -45,7 +45,7 @@ if 'df' not in st.session_state:
 	st.session_state.df = df
 df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
 
-df2 = df1.T
+df2 = df1.T.reset_index()
 st.dataframe(df2)
 
 
