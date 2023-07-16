@@ -4,8 +4,8 @@ import streamlit as st
 import numpy as np
 
 ### The following is used to store the dataframes between reruns
-if 'df' not in st.session_state:
-	st.session_state.df = None
+#if 'df' not in st.session_state:
+#	st.session_state.df = None
 if 'df4' not in st.session_state:
 	st.session_state.df4 = None
 if 'df5' not in st.session_state:
