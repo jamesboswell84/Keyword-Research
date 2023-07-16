@@ -34,7 +34,6 @@ st.divider()
 st.write("""
 	Paste your categories in the following table:
 """)
-#st.write(st.session_state["data_editor"])
 
 if 'df' not in st.session_state:
 	num_cols = 800
