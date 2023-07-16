@@ -47,7 +47,8 @@ df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic",
 
 df2 = df1.T.reset_index()
 df2.columns = df2.iloc[0]
-df2 = df2[~df2['Brand or Non-Brand'].isin(['Keywords','expand_less','check_box','.'])]
+df2 = df2[~df2['Brand or Non-Brand'].isin(['Keywords','expand_less','check_box'])]
+df2 = df2[~df2['Brand or Non-Brand'] > 0]  
 st.dataframe(df2)
 
 
