@@ -49,7 +49,7 @@ if 'df1' not in st.session_state:
 	st.session_state.df = df1
 
 
-df2 = df1.T.reset_index()
+df2 = df1.drop_duplicates().T.reset_index()
 df2 = df2.iloc[:, 0].drop_duplicates()
 df2.columns = df2.iloc[0]
 df2 = df2[~df2.iloc[:, 0].isin(['Keywords','expand_less','check_box'])]
