@@ -44,7 +44,7 @@ if 'df' not in st.session_state:
 		df[col_name] = df[col_name].astype(str)
 	st.session_state.df = df
 
-def format_df():
+def format_df(df1):
 	df2 = df1.T.reset_index()
 	df2.columns = df2.iloc[0]
 	df2 = df2[~df2['Brand or Non-Brand'].isin(['Keywords','expand_less','check_box'])]
