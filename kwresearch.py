@@ -51,6 +51,7 @@ if 'df1' not in st.session_state:
 #df2 = df1.T.reset_index()
 #df2.columns = df2.iloc[0]
 #df2 = df2[~df2['Brand or Non-Brand'].isin(['Keywords','expand_less','check_box'])]
+df1=st.session_state.df1
 st.dataframe(df1)
 
 
