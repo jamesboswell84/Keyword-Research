@@ -35,7 +35,7 @@ st.write("""
 	Paste your KWP categories from clipboard into the below table:
 """)
 
-if 'df' not in st.session_state:
+if 'df1' not in st.session_state:
 	num_cols = 800
 	df = pd.DataFrame()
 	for i in range(num_cols):
@@ -45,13 +45,13 @@ if 'df' not in st.session_state:
 	st.session_state.df = df
 	
 #if 'df1' not in st.session_state:
-	df = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
-	#st.session_state.df1 = df1
+	df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
+	st.session_state.df1 = df1
 
 #df2 = df1.T.reset_index()
 #df2.columns = df2.iloc[0]
 #df2 = df2[~df2['Brand or Non-Brand'].isin(['Keywords','expand_less','check_box'])]
-st.dataframe(df)
+st.dataframe(df1)
 
 
 
