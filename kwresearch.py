@@ -31,23 +31,33 @@ st.write("""
 	[Instructions here](https://github.com/jamesboswell84/Keyword-Research/blob/main/README.md)
 """)
 st.divider()
-st.write("""
-	Paste your KWP categories from clipboard into the below table:
-""")
 
-if 'df' not in st.session_state:
-	num_cols = 800
-	df = pd.DataFrame()
-	for i in range(num_cols):
-		col_name = f'col{i+1}'
-		df[col_name] = np.random.randint(low=0, high=100, size=1)
-		df[col_name] = df[col_name].astype(str)
-	st.session_state.df = df
 
-if 'df1' not in st.session_state:
-	df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
-	st.session_state.df = df1
 
+## streamlit data_editor test
+##st.write("""
+##	Paste your KWP categories from clipboard into the below table:
+##""")
+##if 'df' not in st.session_state:
+##	num_cols = 800
+##	df = pd.DataFrame()
+##	for i in range(num_cols):
+##		col_name = f'col{i+1}'
+##		df[col_name] = np.random.randint(low=0, high=100, size=1)
+##		df[col_name] = df[col_name].astype(str)
+##	st.session_state.df = df
+##
+##if 'df1' not in st.session_state:
+##	df1 = st.data_editor(st.session_state.df, key="data_editor", num_rows="dynamic", use_container_width=True)
+##	st.session_state.df = df1
+##
+
+### Upload your Excel files
+categoriesxl = st.file_uploader("", accept_multiple_files=False, type=['xlsx'])
+st.session_state.files_xlsx = categoriesxl
+
+cat_data = pd.read_excel(categoriesxl[f], 'Sheet 1')
+st.dataframe(cat_data)
 
 df2 = df1.drop_duplicates().T.reset_index()
 #df2 = df2.iloc[:, 0].drop_duplicates()
@@ -58,6 +68,4 @@ st.dataframe(df2)
 
 
 
-### Upload your Excel files
-files_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
-st.session_state.files_csv = files_csv
+
