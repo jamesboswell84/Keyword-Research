@@ -56,7 +56,7 @@ st.divider()
 categoriesxl = st.file_uploader("", accept_multiple_files=False, type=['xlsx'])
 st.session_state.files_xlsx = categoriesxl
 
-if categoriesxl > 0:
+if len(categoriesxl) > 0:
 	cat_data = pd.read_excel(categoriesxl[f], 'Sheet 1')
 	df1 = cat_data
 	st.dataframe(df1)
