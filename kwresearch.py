@@ -50,7 +50,7 @@ def format_df():
 	df2 = df2[~df2['Brand or Non-Brand'].isin(['Keywords','expand_less','check_box'])]
 
 if 'df1' not in st.session_state:
-	df1 = st.data_editor(st.session_state.df, key="data_editor", on_change="format_df" num_rows="dynamic", use_container_width=True)
+	df1 = st.data_editor(st.session_state.df, key="data_editor", on_change="format_df", num_rows="dynamic", use_container_width=True)
 
 
 try:
