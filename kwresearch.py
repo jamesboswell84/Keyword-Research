@@ -60,7 +60,6 @@ categories_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
 if categories_csv is not None:
 	cat_data = pd.read_csv(categories_csv)
 	df1 = cat_data
-	st.dataframe(df1)
 
 	df2 = df1.drop_duplicates().T.reset_index()
 	#df2 = df2.iloc[:, 0].drop_duplicates()
