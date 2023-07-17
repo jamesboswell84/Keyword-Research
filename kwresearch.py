@@ -56,14 +56,16 @@ st.divider()
 categoriesxl = st.file_uploader("", accept_multiple_files=False, type=['xlsx'])
 st.session_state.files_xlsx = categoriesxl
 
-cat_data = pd.read_excel(categoriesxl[f], 'Sheet 1')
-st.dataframe(cat_data)
+if categoriesxl > 0:
+	cat_data = pd.read_excel(categoriesxl[f], 'Sheet 1')
+	df1 = cat_data
+	st.dataframe(df1)
 
-df2 = df1.drop_duplicates().T.reset_index()
-#df2 = df2.iloc[:, 0].drop_duplicates()
-df2.columns = df2.iloc[0]
-#df2 = df2[~df2.iloc[:, 0].isin(['Keywords','expand_less','check_box'])]
-st.dataframe(df2)
+	df2 = df1.drop_duplicates().T.reset_index()
+	#df2 = df2.iloc[:, 0].drop_duplicates()
+	df2.columns = df2.iloc[0]
+	#df2 = df2[~df2.iloc[:, 0].isin(['Keywords','expand_less','check_box'])]
+	st.dataframe(df2)
 
 
 
