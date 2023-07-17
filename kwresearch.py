@@ -51,6 +51,7 @@ def format_df():
 
 if 'df1' not in st.session_state:
 	df1 = st.data_editor(st.session_state.df, key="data_editor", on_change="format_df", num_rows="dynamic", use_container_width=True)
+	st.session_state.df = df1
 
 
 try:
