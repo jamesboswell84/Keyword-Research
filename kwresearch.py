@@ -63,8 +63,9 @@ if categories_csv is not None:
 
 	df2 = df1.T.reset_index()
 	df2 = df2.iloc[:, 0].drop_duplicates()
-	df2.columns = df2.iloc[0]
-	#df2 = df2[~df2.iloc[:, 0].isin(['Keywords','expand_less','check_box'])]
+	df2 = df2[~df2.iloc[:, 0].isin(['Keywords','expand_less','check_box'])]
+	#df2.columns = df2.iloc[0]
+	
 	
 	
 	with st.expander("Show category data"):
