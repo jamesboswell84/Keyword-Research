@@ -61,8 +61,8 @@ if categories_csv is not None:
 	cat_data = pd.read_csv(categories_csv)
 	df1 = cat_data
 
-	df2 = df1.drop_duplicates()
-	#.T.reset_index()
+	df2 = df1.T.reset_index()
+	df2 = df2.drop_duplicates()
 	#df2 = df2.iloc[:, 0].drop_duplicates()
 	df2.columns = df2.iloc[0]
 	#df2 = df2[~df2.iloc[:, 0].isin(['Keywords','expand_less','check_box'])]
