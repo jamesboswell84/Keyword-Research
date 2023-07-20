@@ -64,10 +64,10 @@ if categories_csv is not None:
 		df2 = df1[df1.columns.drop(list(df1.filter(regex=r'^Keywords$|.*\_.*|^Brand$|^Non\-Brands$|.*\..*|^[0-9]*$')))]
 		df2 = df2.rename(columns={"Brand or Non-Brand": "Brand"})
 		df2 = df2.set_index(df2.iloc[1].values)
-		df2 = df2.T.reset_index()
+		
 	except:
 		pass
-
+	df2 = df2.T.reset_index()
 	#df2 = df2.iloc[:, 0].drop_duplicates()
 	#df2.columns = df2.iloc[0]
 	
