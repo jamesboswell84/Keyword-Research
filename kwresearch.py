@@ -61,7 +61,7 @@ if categories_csv is not None:
 	cat_data = pd.read_csv(categories_csv, header=0)
 	df1 = cat_data
 	try:
-		df2 = df1[df1.columns.drop(list(df1.filter(regex=r'Keywords|check_box|expand_less|Brand or Non-Brand|Non-Brands|\.|[0-9]+')))]
+		df2 = df1[df1.columns.drop(list(df1.filter(regex=r'Keywords|check_box|expand_less|Brand or Non\-Brand|Non\-Brands|.*\..*|^[0-9]*$')))]
 	except:
 		pass
 	df2 = df1[df1.columns.drop(list(df1.filter(regex=r'Keywords|check_box|expand_less')))]
