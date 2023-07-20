@@ -64,7 +64,7 @@ if categories_csv is not None:
 		df2 = df1[df1.columns.drop(list(df1.filter(regex=r'Keywords|check_box|expand_less')))]
 	except:
 		pass
-		
+	df2 = df1[df1.columns.drop(list(df1.filter(regex=r'Keywords|check_box|expand_less')))]
 	#df2 = df1.T.reset_index()
 	with st.expander("Show category data"):
 		st.dataframe(df1)	
