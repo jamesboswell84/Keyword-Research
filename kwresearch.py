@@ -61,13 +61,11 @@ if categories_csv is not None:
 	cat_data = pd.read_csv(categories_csv, header=0)
 	df1 = cat_data
 	try:
-		df2 = df1[df1.columns.drop(list(df1.filter(regex=r'Keywords|check_box|expand_less')))]
+		df2 = df1[df1.columns.drop(list(df1.filter(regex=r'Keywords|check_box|expand_less|Brand or Non-Brand|Non-Brands|\.|[0-9]+')))]
 	except:
 		pass
 	df2 = df1[df1.columns.drop(list(df1.filter(regex=r'Keywords|check_box|expand_less')))]
 	#df2 = df1.T.reset_index()
-	with st.expander("Show category data"):
-		st.dataframe(df1)	
 	df2 = df2[~df2.iloc[:, 0].isin(['Keywords','expand_less','check_box'])]
 	#df2 = df2.iloc[:, 0].drop_duplicates()
 	#df2.columns = df2.iloc[0]
