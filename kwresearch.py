@@ -58,9 +58,13 @@ st.divider()
 categories_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
 
 if categories_csv is not None:
-	cat_data = pd.read_csv(categories_csv)
+	cat_data = pd.read_csv(categories_csv, header=0)
 	df1 = cat_data
-
+	try:
+		df2 = df1.drop(columns=['check_box', 'expand_less', 'Keywords'])
+	except:
+		pass
+		
 	#df2 = df1.T.reset_index()
 	with st.expander("Show category data"):
 		st.dataframe(df1)	
