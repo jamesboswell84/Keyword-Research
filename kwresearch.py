@@ -71,13 +71,13 @@ if categories_csv is not None:
 		df2 = df2.drop(df2.index[0])
 		col_total = len(df2.columns)
 		lists = []
-		for n in col_total:
-			list = df2.index[n].tolist()
-			st.write(list)
-			lists[n].append(list)
+
 	except:
 		pass
-	
+	for n in col_total:
+		list = df2.index[n].tolist()
+		st.write(list)
+		lists[n].append(list)	
 	#df2 = df2.iloc[:, 0].drop_duplicates()
 	#df2.columns = df2.iloc[0]
 	
