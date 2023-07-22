@@ -86,9 +86,8 @@ if categories_csv is not None:
 			pass
 		try:
 			list = list.tolist()
-			st.dataframe(df2)
 		except:
-			pass
+			st.dataframe(df2)
 		lists.append(list)
 		try:
 			list_singular = list_singular.tolist()
