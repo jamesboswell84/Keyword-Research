@@ -62,9 +62,11 @@ if categories_csv is not None:
 	cat_data = pd.read_csv(categories_csv, header=0)
 	df1 = cat_data
 	try:
-		df2 = df1[df1.columns.drop(list(df1.filter(regex=r'^Keywords$|.*\_.*|^Brand$|^Non\-Brands$|.*\..*|^[0-9]*$')))]
-		df2 = df2.rename(columns={"Brand or Non-Brand": "Brand"})
-		#df2 = df2.set_index("Brand")
+		df1 = df1[df1.columns.drop(list(df1.filter(regex=r'^Keywords$|.*\_.*|^Brand$|^Non\-Brands$|.*\..*|^[0-9]*$')))]
+	except:
+		pass
+	try:
+		df2 = df1.rename(columns={"Brand or Non-Brand": "Brand"})
 		df2 = df2.T.reset_index()
 		df2.columns = df2.iloc[0]	
 		df2 = df2.drop(df2.index[0])
