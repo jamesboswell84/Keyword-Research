@@ -71,8 +71,7 @@ if categories_csv is not None:
 	except:
 		df2 = df1
 		st.dataframe(df2)
-		pass
-	
+			
 	col_names = []
 	lists = []
 	lists_singular = []
