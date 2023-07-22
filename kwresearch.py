@@ -56,7 +56,7 @@ st.divider()
 
 ### Upload your Excel files
 st.write("Upload your categories in csv format:")
-categories_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
+categories_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'], key="categories_csv")
 
 if categories_csv is not None:
 	cat_data = pd.read_csv(categories_csv, header=0)
@@ -85,7 +85,7 @@ if categories_csv is not None:
 	with st.expander("Show column 1 as list"):
 		st.write(df3)
 st.write("Upload your keywords in csv format:")
-keywords_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'])
+keywords_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 if keywords_csv is not None:
 	kw_data = pd.read_csv(keywords_csv, header=0)
 	with st.expander("Show keyword data"):
