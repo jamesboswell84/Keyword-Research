@@ -65,7 +65,7 @@ if categories_csv is not None:
 		df2 = df2.rename(columns={"Brand or Non-Brand": "Brand"})
 		#df2 = df2.set_index("Brand")
 		df2 = df2.T.reset_index()
-		df2 = df2
+		df2 = df2[1:,]
 		df3 = df2[0].tolist()
 		colno = len(df2.columns)
 		st.write(len(df2.columns))
