@@ -104,10 +104,10 @@ if categories_csv is not None:
 	keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 	if keywords_csv is not None:
 		kw_data = pd.read_csv(keywords_csv, encoding='utf-16', sep='\t', lineterminator='\r', skiprows=2)
-		kw_data["Singular"] = kw_data["Keyword"].str.rstrip(",s")
+		#kw_data["Singular"] = kw_data["Keyword"].str.rstrip(",s")
 
-		for n in col_names:
-			kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists[0]) +")", expand=False)
+		#for n in col_names:
+		#	kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[0]) +")", expand=False)
 	
 		with st.expander("Show keyword data"):
 			st.dataframe(kw_data)
