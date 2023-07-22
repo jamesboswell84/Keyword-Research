@@ -82,8 +82,8 @@ if categories_csv is not None:
 	
 	with st.expander("Show category data"):
 		st.dataframe(df2)
-	with st.expander("Show column 1 as list"):
-		st.write(list[4])
+	#with st.expander("Show column 1 as list"):
+	#	st.write(list[4])
 
 keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 if keywords_csv is not None:
