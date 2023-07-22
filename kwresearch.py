@@ -75,20 +75,23 @@ if categories_csv is not None:
 		pass
 	col_names = []
 	lists = []
+	lists_singular = []
 	for col in df2:
 		col_names.append(col)
 		try:
 			list = df2[col].dropna()
 		except:
 			pass
-		list = list.str.replace(r'(\w{2,})s\b', r'\1')
+		lists_singular = list.str.replace(r'(\w{2,})s\b', r'\1')
 		list = list.tolist()
 		lists.append(list)
 		
 	with st.expander("Show category data"):
 		st.dataframe(df2)
-	with st.expander("Show column 1 as list"):
+	with st.expander("Show filter lists (with plurals)"):
 		st.write(lists)
+	with st.expander("Show singular lists"):
+		st.write(lists_singular)
 
 keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 if keywords_csv is not None:
