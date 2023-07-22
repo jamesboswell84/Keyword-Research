@@ -61,6 +61,7 @@ categories_csv = st.file_uploader("Upload your categories in csv format:", accep
 if categories_csv is not None:
 	cat_data = pd.read_csv(categories_csv, header=0)
 	df1 = cat_data
+	st.write(len(df1))
 	if len(df1) > 20:
 		df2 = df1[df1.columns.drop(list(df1.filter(regex=r'^Keywords$|.*\_.*|^Brand$|^Non\-Brands$|.*\..*|^[0-9]*$')))]
 		df2 = df2.rename(columns={"Brand or Non-Brand": "Brand"})
