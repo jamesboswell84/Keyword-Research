@@ -70,10 +70,10 @@ if categories_csv is not None:
 		df2.columns = df2.iloc[0]	
 		df2 = df2.drop(df2.index[0])
 		col_total = len(df2.columns)
-		list = []
+		lists = []
 		for n in col_total:
-			list[n] = df2.index[n].tolist()
-			
+			list = df2.index[n].tolist()
+			lists[n].append(list)
 	except:
 		pass
 	
@@ -83,7 +83,7 @@ if categories_csv is not None:
 	with st.expander("Show category data"):
 		st.dataframe(df2)
 	with st.expander("Show column 1 as list"):
-		st.write(list)
+		st.write(lists)
 
 keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 if keywords_csv is not None:
