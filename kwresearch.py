@@ -68,10 +68,8 @@ if categories_csv is not None:
 		df2 = df2.T.reset_index()
 		df2.columns = df2.iloc[0]	
 		df2 = df2.drop(df2.index[0])
-		col_total = len(df2.columns)
-		
-
 	except:
+		df2 = df1
 		pass
 	col_names = []
 	lists = []
