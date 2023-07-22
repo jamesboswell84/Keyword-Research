@@ -84,11 +84,10 @@ if categories_csv is not None:
 			pass
 		#list_singular = list.str.replace(r'(\w{2,})s\b', r'lip')
 		#list_singular = list.str.replace(r'.*\b([a-zA-Z]+)s\b.*', r'\1')
-		list_singular = list.str.replace(r'''.*s\b''', r'lip')
-		string = list.str
+		list_singular = list.str.rstrip(",s")
 		list = list.tolist()
 		
-		st.write(string)
+		st.write(list_singular)
 		list_singular = list_singular.tolist()
 		lists.append(list)
 		lists_singular.append(list_singular)
