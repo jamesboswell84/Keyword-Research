@@ -81,13 +81,10 @@ if categories_csv is not None:
 			list = df2[col].dropna()
 		except:
 			pass
-		list.str.replace(r'(\w{2,})s\b', r'\1')
+		list = list.str.replace(r'(\w{2,})s\b', r'\1')
 		list = list.tolist()
 		lists.append(list)
-		st.write("list:",list)
-	#df2 = df2.iloc[:, 0].drop_duplicates()
-	#df2.columns = df2.iloc[0]
-	
+		
 	with st.expander("Show category data"):
 		st.dataframe(df2)
 	with st.expander("Show column 1 as list"):
