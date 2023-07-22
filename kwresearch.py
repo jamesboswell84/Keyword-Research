@@ -74,9 +74,9 @@ if categories_csv is not None:
 
 	except:
 		pass
-	for n in df2:
-		list = df2.index[n].tolist()
-		st.write("n:",n)
+	for col in df2:
+		list = col.tolist()
+		st.write("n:",col)
 		st.write("list:",list)
 		lists[n].append(list)	
 	#df2 = df2.iloc[:, 0].drop_duplicates()
