@@ -66,19 +66,20 @@ if categories_csv is not None:
 		df2 = df2.rename(columns={"Brand or Non-Brand": "Brand"})
 		#df2 = df2.set_index("Brand")
 		df2 = df2.T.reset_index()
-		col_names = df2.iloc[0]
 		df2.columns = df2.iloc[0]	
 		df2 = df2.drop(df2.index[0])
 		col_total = len(df2.columns)
-		lists = []
+		
 
 	except:
 		pass
+	col_names = []
+	lists = []
 	for col in df2:
-		st.write("col:",col)
-		list = col.tolist()
+		col_names.append(col)
+		list = df2[col].tolist()
+		lists.append(list)
 		st.write("list:",list)
-		lists[n].append(list)	
 	#df2 = df2.iloc[:, 0].drop_duplicates()
 	#df2.columns = df2.iloc[0]
 	
