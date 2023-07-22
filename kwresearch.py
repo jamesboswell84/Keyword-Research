@@ -74,7 +74,7 @@ if categories_csv is not None:
 
 	except:
 		pass
-	for n in df2.columns:
+	for n in len(df2.columns):
 		list = df2.index[n].tolist()
 		st.write(list)
 		lists[n].append(list)	
