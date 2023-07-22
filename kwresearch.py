@@ -70,7 +70,6 @@ if categories_csv is not None:
 		df2 = df2.drop(df2.index[0])
 	except:
 		df2 = df1
-		st.dataframe(df2)
 			
 	col_names = []
 	lists = []
@@ -85,7 +84,10 @@ if categories_csv is not None:
 			list_singular = list.str.rstrip(",s")
 		except:
 			pass
-		list = list.tolist()
+		try:
+			list = list.tolist()
+		except:
+			st.dataframe(df1)
 		lists.append(list)
 		list_singular = list_singular.tolist()
 		lists_singular.append(list_singular)
