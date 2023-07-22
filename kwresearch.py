@@ -98,8 +98,11 @@ if categories_csv is not None:
 	with st.expander("Show singular lists"):
 		st.write(lists_singular)
 
-keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
-if keywords_csv is not None:
-	kw_data = pd.read_csv(keywords_csv, header=0)
-	with st.expander("Show keyword data"):
-		st.dataframe(kw_data)
+	keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
+	if keywords_csv is not None:
+		kw_data = pd.read_csv(keywords_csv, header=2)
+		
+	
+	
+		with st.expander("Show keyword data"):
+			st.dataframe(kw_data)
