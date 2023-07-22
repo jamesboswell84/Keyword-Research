@@ -67,6 +67,7 @@ if categories_csv is not None:
 		#df2 = df2.set_index("Brand")
 		df2 = df2.T.reset_index()
 		df2.columns = df2.iloc[0]	
+		df2 = df2.drop(df.index[1])
 		colno = len(df2.columns)
 		st.write(len(df2.columns))	
 	except:
