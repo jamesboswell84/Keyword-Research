@@ -82,8 +82,9 @@ if categories_csv is not None:
 			list = df2[col].dropna()
 		except:
 			pass
+		list_singular = list.replace(r'.*(\w{2,})s\b.*', r'\1')
 		list = list.tolist()
-		list_singular = df2[col].str.replace(r'(\w{2,})s\b', r'\1')
+		
 		st.write(list_singular)
 		list_singular = list_singular.tolist()
 		lists.append(list)
