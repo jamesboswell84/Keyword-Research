@@ -67,7 +67,7 @@ if categories_csv is not None:
 		df2 = df2.T.reset_index()
 		df2.columns = df2.iloc[0]
 		df2 = df2.drop(df2.index[0])
-		df3 = df2[0].tolist()
+		df3 = df2[1].tolist()
 		colno = len(df2.columns)
 		st.write(len(df2.columns))
 		
