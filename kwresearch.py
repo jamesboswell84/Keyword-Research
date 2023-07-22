@@ -82,12 +82,12 @@ if categories_csv is not None:
 			list = df2[col].dropna()
 		except:
 			pass
-		list = list.tolist()
-		lists.append(list)
 		try:
 			list_singular = list.str.rstrip(",s")
 		except:
 			pass
+		list = list.tolist()
+		lists.append(list)
 		list_singular = list_singular.tolist()
 		lists_singular.append(list_singular)
 		
