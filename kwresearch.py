@@ -110,4 +110,4 @@ if categories_csv is not None:
 		#	kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[0]) +")", expand=False)
 	
 		with st.expander("Show keyword data"):
-			st.dataframe(kw_data)
+			st.dataframe(kw_data.columns)
