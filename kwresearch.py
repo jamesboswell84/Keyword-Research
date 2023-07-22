@@ -79,7 +79,7 @@ if categories_csv is not None:
 	with st.expander("Show category data"):
 		st.dataframe(df2)
 	with st.expander("Show column 1 as list"):
-		st.dataframe(df3)
+		st.write(df3)
 
 
 
