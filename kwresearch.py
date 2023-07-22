@@ -66,20 +66,23 @@ if categories_csv is not None:
 		df2 = df2.rename(columns={"Brand or Non-Brand": "Brand"})
 		#df2 = df2.set_index("Brand")
 		df2 = df2.T.reset_index()
+		col_names = df2.iloc[0]
 		df2.columns = df2.iloc[0]	
 		df2 = df2.drop(df2.index[0])
-		colno = len(df2.columns)
-		st.write(len(df2.columns))	
+		col_total = len(df2.columns)
+		for n in col_total:
+			list[n] = df2.index[n].tolist()
+		
 	except:
 		pass
-	df3 = df2["Brand"].tolist()
+	
 	#df2 = df2.iloc[:, 0].drop_duplicates()
 	#df2.columns = df2.iloc[0]
 	
 	with st.expander("Show category data"):
 		st.dataframe(df2)
 	with st.expander("Show column 1 as list"):
-		st.write(df3)
+		st.write(list)
 
 keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 if keywords_csv is not None:
