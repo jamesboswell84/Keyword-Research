@@ -82,7 +82,7 @@ if categories_csv is not None:
 		#except:
 		#	pass
 		list = df2[col].tolist()
-		cleanedList = [x for x in list if str(x) != 'nan']
+		list = [x for x in list if ~np.isnan(x)]
 		lists.append(list)
 		st.write("list:",list)
 	#df2 = df2.iloc[:, 0].drop_duplicates()
