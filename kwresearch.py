@@ -56,7 +56,7 @@ st.divider()
 
 ### Upload your Excel files
 st.write("Upload your categories in csv format:")
-categories_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'], key="categories_csv")
+categories_csv = st.file_uploader("Upload your categories in csv format:", accept_multiple_files=False, type=['csv'], key="categories_csv")
 
 if categories_csv is not None:
 	cat_data = pd.read_csv(categories_csv, header=0)
