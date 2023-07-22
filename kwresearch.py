@@ -72,7 +72,7 @@ if categories_csv is not None:
 		st.write(len(df2.columns))	
 	except:
 		pass
-
+	df3 = df2["Brand"].tolist()
 	#df2 = df2.iloc[:, 0].drop_duplicates()
 	#df2.columns = df2.iloc[0]
 	
