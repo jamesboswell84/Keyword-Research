@@ -55,7 +55,7 @@ st.divider()
 ##
 
 ### Upload your Excel files
-st.write("Upload your categories in csv format:")
+
 categories_csv = st.file_uploader("Upload your categories in csv format:", accept_multiple_files=False, type=['csv'], key="categories_csv")
 
 if categories_csv is not None:
@@ -67,25 +67,21 @@ if categories_csv is not None:
 		#df2 = df2.set_index("Brand")
 		df2 = df2.T.reset_index()
 		df2.columns = df2.iloc[0]
-		df2 = df2.drop(df2.index[0])
-		
+		df2 = df2.drop(df2.index[0])	
 		colno = len(df2.columns)
-		st.write(len(df2.columns))
-		
+		st.write(len(df2.columns))	
 	except:
 		pass
 	df3 = df2.index[1].tolist()
 	#df2 = df2.iloc[:, 0].drop_duplicates()
 	#df2.columns = df2.iloc[0]
 	
-	
-	
 	with st.expander("Show category data"):
 		st.dataframe(df2)
 	with st.expander("Show column 1 as list"):
 		st.write(df3)
-st.write("Upload your keywords in csv format:")
-keywords_csv = st.file_uploader("", accept_multiple_files=False, type=['csv'], key="keywords_csv")
+
+keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 if keywords_csv is not None:
 	kw_data = pd.read_csv(keywords_csv, header=0)
 	with st.expander("Show keyword data"):
