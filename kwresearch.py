@@ -90,7 +90,7 @@ if categories_csv is not None:
 		list = list.tolist()
 		list_singular = list_singular.tolist()
 		lists.append(list)
-		lists_singular.append(lists_singular)
+		lists_singular.append(list_singular)
 		
 	with st.expander("Show category data"):
 		st.dataframe(df2)
