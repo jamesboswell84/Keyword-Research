@@ -87,9 +87,11 @@ if categories_csv is not None:
 		try:
 			list = list.tolist()
 		except:
-			st.dataframe(df1)
 		lists.append(list)
-		list_singular = list_singular.tolist()
+		try:
+			list_singular = list_singular.tolist()
+		except:
+			pass
 		lists_singular.append(list_singular)
 		
 	with st.expander("Show category data"):
