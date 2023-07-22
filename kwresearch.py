@@ -87,6 +87,7 @@ if categories_csv is not None:
 		try:
 			list = list.tolist()
 		except:
+			pass
 		lists.append(list)
 		try:
 			list_singular = list_singular.tolist()
