@@ -70,7 +70,9 @@ if categories_csv is not None:
 		df2 = df2.drop(df2.index[0])
 	except:
 		df2 = df1
+		st.dataframe(df2)
 		pass
+	
 	col_names = []
 	lists = []
 	lists_singular = []
