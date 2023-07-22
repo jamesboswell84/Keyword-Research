@@ -100,7 +100,7 @@ if categories_csv is not None:
 
 	keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 	if keywords_csv is not None:
-		kw_data = pd.read_csv(keywords_csv, header=2, encoding='utf-8')
+		kw_data = pd.read_csv(keywords_csv, header=2, encoding='utf-8', encoding_errors='replace')
 		
 	
 	
