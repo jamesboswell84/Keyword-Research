@@ -82,14 +82,13 @@ if categories_csv is not None:
 			list = df2[col].dropna()
 		except:
 			pass
-		#list_singular = list.str.replace(r'(\w{2,})s\b', r'lip')
-		#list_singular = list.str.replace(r'.*\b([a-zA-Z]+)s\b.*', r'\1')
-		list_singular = list.str.rstrip(",s")
 		list = list.tolist()
-		
-		st.write(list_singular)
-		list_singular = list_singular.tolist()
 		lists.append(list)
+		try:
+			list_singular = list.str.rstrip(",s")
+		except:
+			pass
+		list_singular = list_singular.tolist()
 		lists_singular.append(list_singular)
 		
 	with st.expander("Show category data"):
