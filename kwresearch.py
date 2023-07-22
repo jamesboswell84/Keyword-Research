@@ -107,8 +107,8 @@ if categories_csv is not None:
 		kw_data["Singular"] = kw_data["Keyword"].str.rstrip(",s")
 
 		for n in col_names:
-			for nn in lists_singular:
-				kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(nn) +")", expand=False)
-	
+			dimens_no = 0
+			kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
+			dimens_no = dimens_no + 1
 		with st.expander("Show keyword data"):
 			st.dataframe(kw_data)
