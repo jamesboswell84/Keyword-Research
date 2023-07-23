@@ -91,15 +91,14 @@ if categories_csv is not None:
 	if keywords_csv is not None:
 		kw_data = pd.read_csv(keywords_csv, encoding='utf-16', sep='\t', skiprows=2)
 		kw_data = kw_data.drop(['Currency', 'Competition', 'Competition (indexed value)', 'Ad impression share', 'Organic impression share', 'Organic average position', 'In account?', 'In plan?'], axis=1)
-		temp_kw_data = kw_data
-		temp_kw_data["Singular"] = temp_kw_data["Keyword"].str.rstrip(",s")
+		kw_data["Singular"] = kw_data["Keyword"].str.rstrip(",s")
 		dimens_no = 0
 		lists_df = pd.DataFrame(lists)
 		for n in col_names:
-			temp_kw_data[n] = temp_kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
-			mask = temp_kw_data[n].replace(r'^\s+$', np.nan).astype(bool)
-			st.write(mask)
-			kw_data[n] = lists_df[dimens_no].where(mask, other=temp_kw_data[n])
+			kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
+			#mask = kw_data[n].replace(r'^\s+$', np.nan).astype(bool)
+			#st.write(mask)
+			#kw_data[n] = lists_df[dimens_no].where(mask, other=temp_kw_data[n])
 			dimens_no = dimens_no + 1
 			
 		
