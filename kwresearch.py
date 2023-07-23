@@ -95,10 +95,13 @@ if categories_csv is not None:
 		for n in col_names:
 			kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
 			dimens_no = dimens_no + 1
-		col_num = len(col_names)
-		kw_data = kw_data.insert(1,col_names,kw_data[col_names])
+		col_no = 1
+		for n in kw_data[col_names]:
+			kw_data = kw_data.insert(col_no,col_names,kw_data[col_names])
+			col_no = col_no + 1
 		kw_data = kw_data.drop(['Currency', 'Competition', 'Competition (indexed value)', 'Ad impression share', 'Organic impression share', 'Organic average position', 'In account?', 'In plan?'], axis=1)
-		
+		new_cols = [col for col in kw_data.columns if col != 'date'] + ['date']
+		kw_data = kw_data[new_cols]
 		
 		st.session_state.kw_data = kw_data
 		with st.expander("Show keyword data"):
