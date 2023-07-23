@@ -105,9 +105,8 @@ if categories_csv is not None:
 	if keywords_csv is not None:
 		kw_data = pd.read_csv(keywords_csv, encoding='utf-16', sep='\t', skiprows=2)
 		kw_data["Singular"] = kw_data["Keyword"].str.rstrip(",s")
-
+		dimens_no = 0
 		for n in col_names:
-			dimens_no = 0
 			kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
 			dimens_no = dimens_no + 1
 		with st.expander("Show keyword data"):
