@@ -96,10 +96,11 @@ if categories_csv is not None:
 		dimens_no = 0
 		for n in col_names:
 			temp_kw_data[n] = temp_kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
-			#mask = np.where(temp_kw_data[n].isin([1,4]),True,False) 
-			kw_data[n] = temp_kw_data[n].where(np.isnan(temp_kw_data[n]), other=lists[dimens_no])
+			mask = temp_kw_data[n].astype('boolean') 
+			st.write(mask)
+			kw_data[n] = lists[dimens_no].where(mask, other=temp_kw_data[n])
 			dimens_no = dimens_no + 1
-			st.write(kw_data[n])
+			
 		
 		st.session_state.kw_data = kw_data
 		with st.expander("Show keyword data"):
