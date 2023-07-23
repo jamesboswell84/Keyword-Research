@@ -96,7 +96,7 @@ if categories_csv is not None:
 		dimens_no = 0
 		for n in col_names:
 			temp_kw_data[n] = temp_kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
-			mask = temp_kw_data[n].astype('boolean') 
+			mask = temp_kw_data[n].astype(bool).astype(int) 
 			st.write(mask)
 			kw_data[n] = lists[dimens_no].where(mask, other=temp_kw_data[n])
 			dimens_no = dimens_no + 1
