@@ -95,6 +95,11 @@ if categories_csv is not None:
 		for n in col_names:
 			kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
 			dimens_no = dimens_no + 1
+		col_num = len(col_names)
+		kw_data = kw_data.insert(1,col_names,kw_data[col_names])
+		kw_data = kw_data.drop(['Currency', 'Competition', 'Competition (indexed value)', 'Ad impression share', 'Organic impression share', 'Organic average position', 'In account?', 'In plan?'], axis=1)
+		
+		
 		st.session_state.kw_data = kw_data
 		with st.expander("Show keyword data"):
 			st.dataframe(kw_data)
@@ -110,7 +115,7 @@ if categories_csv is not None:
 				# IMPORTANT: Cache the conversion to prevent computation on every rerun
 					return kw_data.to_csv().encode('utf-8')
 				csv = convert_df(kw_data)
-				st.download_button('Download Keyword Data', csv, file_name="1. keyword_data.csv",mime='text/csv')
+				st.download_button('Download Keyword Data', csv, index=False, file_name="1. keyword_data.csv",mime='text/csv')
 			except TypeError:
 				pass
 			except AttributeError:
@@ -123,7 +128,7 @@ if categories_csv is not None:
 				# IMPORTANT: Cache the conversion to prevent computation on every rerun
 					return df2.to_csv().encode('utf-8')
 				csv = convert_df(df2)
-				st.download_button('Download Categories', csv, file_name="1. categories.csv",mime='text/csv')
+				st.download_button('Download Categories', csv, index=False, file_name="1. categories.csv",mime='text/csv')
 			except TypeError:
 				pass
 			except AttributeError:
