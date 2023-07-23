@@ -95,7 +95,6 @@ if categories_csv is not None:
 		for n in col_names:
 			kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
 			dimens_no = dimens_no + 1
-		kw_data = kw_data[new_columns]
 		kw_data = kw_data.drop(['Currency', 'Competition', 'Competition (indexed value)', 'Ad impression share', 'Organic impression share', 'Organic average position', 'In account?', 'In plan?'], axis=1)
 		
 		st.session_state.kw_data = kw_data
