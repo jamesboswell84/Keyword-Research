@@ -97,7 +97,7 @@ if categories_csv is not None:
 		for n in col_names:
 			temp_kw_data[n] = temp_kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
 			#mask = np.where(temp_kw_data[n].isin([1,4]),True,False) 
-			kw_data[n] = temp_kw_data[n].where(isnan(temp_kw_data[n]), other=lists[dimens_no])
+			kw_data[n] = temp_kw_data[n].where(np.isnan(temp_kw_data[n]), other=lists[dimens_no])
 			dimens_no = dimens_no + 1
 			st.write(kw_data[n])
 		
