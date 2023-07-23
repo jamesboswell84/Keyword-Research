@@ -28,3 +28,10 @@ For your first run, you need a csv file with your categories, and a good headsta
 - The script tidies up the categories csv (Table Capture copy of the Keyword Planner "Refine keywords" panel is a mess)
 - It then iterates through category columns, turning them into separate lists of entities and modifiers
 - For each category, it then extracts the entities/modifiers from the Keyword column in the keyword data into a new column for that category
+
+## Future updates
+
+- Remove empty list (causing duplication in last column of keyword data output)
+- Restoring category labels to plural versions (stripped "S" from the end to allow phrase match to work - otherwise "womens" category label wouldn't match "women" appearing in keyword)
+- Word break into phrase match - to stop some instances of incorrect matching e.g. "her" matching "hermes"
+- Move columns so categories come after keyword column
