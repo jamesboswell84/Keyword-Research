@@ -103,27 +103,30 @@ if categories_csv is not None:
 		st.divider()
 		kw_data = st.session_state.kw_data
 		df2 = st.session_state.df2
-		try:	
-			def convert_df(kw_data):
-			# IMPORTANT: Cache the conversion to prevent computation on every rerun
-				return output.to_csv().encode('utf-8')
-			csv = convert_df(output)
-			st.download_button('Download Keyword Data', csv, file_name="1. keyword_data.csv",mime='text/csv')
-		except TypeError:
-			pass
-		except AttributeError:
-		    	pass
-		except NameError:
-			pass
-				try:	
-			def convert_df(df2):
-			# IMPORTANT: Cache the conversion to prevent computation on every rerun
-				return df2.to_csv().encode('utf-8')
-			csv = convert_df(output)
-			st.download_button('Download Categories', csv, file_name="1. categories.csv",mime='text/csv')
-		except TypeError:
-			pass
-		except AttributeError:
-		    	pass
-		except NameError:
-			pass
+		col1, col2 = st.columns(2)
+		with col1:
+			try:	
+				def convert_df(kw_data):
+				# IMPORTANT: Cache the conversion to prevent computation on every rerun
+					return output.to_csv().encode('utf-8')
+				csv = convert_df(output)
+				st.download_button('Download Keyword Data', csv, file_name="1. keyword_data.csv",mime='text/csv')
+			except TypeError:
+				pass
+			except AttributeError:
+			    	pass
+			except NameError:
+				pass
+		with col2:	
+			try:	
+				def convert_df(df2):
+				# IMPORTANT: Cache the conversion to prevent computation on every rerun
+					return df2.to_csv().encode('utf-8')
+				csv = convert_df(output)
+				st.download_button('Download Categories', csv, file_name="1. categories.csv",mime='text/csv')
+			except TypeError:
+				pass
+			except AttributeError:
+			    	pass
+			except NameError:
+				pass
