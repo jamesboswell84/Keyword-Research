@@ -94,11 +94,12 @@ if categories_csv is not None:
 		temp_kw_data = kw_data
 		temp_kw_data["Singular"] = temp_kw_data["Keyword"].str.rstrip(",s")
 		dimens_no = 0
+		lists_df = pd.DataFrame(lists)
 		for n in col_names:
 			temp_kw_data[n] = temp_kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
 			mask = temp_kw_data[n].astype(bool).astype(int) 
 			st.write(mask)
-			kw_data[n] = lists[dimens_no].where(mask, other=temp_kw_data[n])
+			kw_data[n] = lists_df[dimens_no].where(mask, other=temp_kw_data[n])
 			dimens_no = dimens_no + 1
 			
 		
