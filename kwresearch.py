@@ -90,12 +90,15 @@ if categories_csv is not None:
 	keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 	if keywords_csv is not None:
 		kw_data = pd.read_csv(keywords_csv, encoding='utf-16', sep='\t', skiprows=2)
-		kw_data["Singular"] = kw_data["Keyword"].str.rstrip(",s")
+		kw_data = kw_data.drop(['Currency', 'Competition', 'Competition (indexed value)', 'Ad impression share', 'Organic impression share', 'Organic average position', 'In account?', 'In plan?'], axis=1)
+		temp_kw_data = kw_data
+		temp_kw_data["Singular"] = temp_kw_data["Keyword"].str.rstrip(",s")
 		dimens_no = 0
 		for n in col_names:
-			kw_data[n] = kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
+			temp_kw_data[n] = temp_kw_data["Singular"].str.extract("(" + "|".join(lists_singular[dimens_no]) +")", expand=False)
+			kw_data[n] = temp_kw_data[n].where(temp_kw_data[n], other=lists[dimens_no])
 			dimens_no = dimens_no + 1
-		kw_data = kw_data.drop(['Currency', 'Competition', 'Competition (indexed value)', 'Ad impression share', 'Organic impression share', 'Organic average position', 'In account?', 'In plan?'], axis=1)
+		
 		
 		st.session_state.kw_data = kw_data
 		with st.expander("Show keyword data"):
