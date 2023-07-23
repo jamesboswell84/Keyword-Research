@@ -110,9 +110,9 @@ if categories_csv is not None:
 			try:	
 				def convert_df(kw_data):
 				# IMPORTANT: Cache the conversion to prevent computation on every rerun
-					return kw_data.to_csv().encode('utf-8')
+					return kw_data.to_csv().encode('utf-8', index=False)
 				csv = convert_df(kw_data)
-				st.download_button('Download Keyword Data', csv, index=False, file_name="1. keyword_data.csv",mime='text/csv')
+				st.download_button('Download Keyword Data', csv, file_name="1. keyword_data.csv",mime='text/csv')
 			except TypeError:
 				pass
 			except AttributeError:
@@ -123,9 +123,9 @@ if categories_csv is not None:
 			try:	
 				def convert_df(df2):
 				# IMPORTANT: Cache the conversion to prevent computation on every rerun
-					return df2.to_csv().encode('utf-8')
+					return df2.to_csv().encode('utf-8', index=False)
 				csv = convert_df(df2)
-				st.download_button('Download Categories', csv, index=False, file_name="1. categories.csv",mime='text/csv')
+				st.download_button('Download Categories', csv, file_name="1. categories.csv",mime='text/csv')
 			except TypeError:
 				pass
 			except AttributeError:
