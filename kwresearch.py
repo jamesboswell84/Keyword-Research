@@ -82,10 +82,10 @@ if categories_csv is not None:
 		
 	with st.expander("Show category data"):
 		st.dataframe(df2)
-	with st.expander("Show filter lists (with plurals)"):
-		st.write(lists)
-	with st.expander("Show singular lists"):
-		st.write(lists_singular)
+	#with st.expander("Show filter lists (with plurals)"):
+		#st.write(lists)
+	#with st.expander("Show singular lists"):
+		#st.write(lists_singular)
 
 	keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 	if keywords_csv is not None:
