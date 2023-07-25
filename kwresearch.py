@@ -90,7 +90,7 @@ if categories_csv is not None:
 	keywords_csv = st.file_uploader("Upload your keywords in csv format:", accept_multiple_files=False, type=['csv'], key="keywords_csv")
 	if keywords_csv is not None:
 		kw_data = pd.read_csv(keywords_csv, encoding='utf-16', sep='\t', skiprows=2)
-		kw_data = kw_data.drop(['Currency', 'Competition', 'Competition (indexed value)', 'Ad impression share', 'Organic impression share', 'Organic average position', 'In account?', 'In plan?', 'Singular'], axis=1)
+		kw_data = kw_data.drop(['Currency', 'Competition', 'Competition (indexed value)', 'Ad impression share', 'Organic impression share', 'Organic average position', 'In account?', 'In plan?'], axis=1)
 		kw_data["Singular"] = kw_data["Keyword"].str.rstrip(",s")
 		dimens_no = 0
 		lists_df = pd.DataFrame(lists)
@@ -100,7 +100,7 @@ if categories_csv is not None:
 			#st.write(mask)
 			#kw_data[n] = lists_df[dimens_no].where(mask, other=temp_kw_data[n])
 			dimens_no = dimens_no + 1
-			
+		kw_data = kw_data.drop(['Singular'], axis=1)	
 		
 		st.session_state.kw_data = kw_data
 		with st.expander("Show keyword data"):
